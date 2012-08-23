@@ -47,7 +47,7 @@ class EventsController extends EventAppController {
         $membersId = array();
 
         //pass appId, appSecret, and page number
-        $pull_fb = new PullFb( '489950941015377', '65c1c96c3b9e6bd5d516277446118597', 1 );
+        $pull_fb = new PullFb( Configure::read("Facebook.apiKey"), Configure::read("Facebook.secret"), 1 );
 
         //get people invited to the event
             $event_members = $pull_fb->getEventMembers('275959312512416');

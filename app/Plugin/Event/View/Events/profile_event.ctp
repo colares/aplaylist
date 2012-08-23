@@ -59,7 +59,7 @@
     
     <script>
       FB.init({
-        appId  : 'YOUR_APP_ID',
+        appId  : '<?php print Configure::read("Facebook.apiKey"); ?>',
         frictionlessRequests: true
       });
 

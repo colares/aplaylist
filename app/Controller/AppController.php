@@ -146,19 +146,19 @@ class AppController extends Controller {
 		/*
 			TODO Terrible!! hehe
 		*/
-		if(
-			(
-				isset($this->params->pass[0])
-				&&
-				$this->params->pass[0] == 'home'
-			)
-			&&
-			$this->params->action == 'display'
-			&&
-			$this->Session->read('Auth.User')
-		){
-			$this->redirect('/profile/issues');
-		}
+		// if(
+		// 	(
+		// 		isset($this->params->pass[0])
+		// 		&&
+		// 		$this->params->pass[0] == 'home'
+		// 	)
+		// 	&&
+		// 	$this->params->action == 'display'
+		// 	&&
+		// 	$this->Session->read('Auth.User')
+		// ){
+		// 	$this->redirect('/profile/issues');
+		// }
 
 
 
@@ -176,7 +176,7 @@ class AppController extends Controller {
 		// Actions public for all visitors. This options overcome Authorizations setup
 		$this->Auth->allow('display');
 		// 'authorizedActions' => array('index', 'view', 'display')
-		$this->Auth->allow('*');
+		$this->Auth->allow();
 
 		// Authorization setup
 		// using the default
@@ -190,7 +190,7 @@ class AppController extends Controller {
 		// Login / Logout stuffs setup
 		$this->Auth->loginError = __('Username or password are incorrect.');
 	    $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login','admin' => false, 'plugin' => false);	
-        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login', 'admin' => false, 'plugin' => false);
+        $this->Auth->logoutRedirect = array('controller' => 'pages', 'action' => 'display/home', 'admin' => false, 'plugin' => false);
         $this->Auth->loginRedirect = array('controller' => 'systems', 'action' => 'dashboard', 'admin' => true, 'plugin' => false);
     }
 

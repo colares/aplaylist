@@ -14,17 +14,20 @@
 		?>
 		
     	<div class="nav-collapse">
-      		<ul class="nav">
+
+      		<ul class="nav"> 
+      			<li><a class="brand" >The <Strong>Awereness</strong> Playlist <span class="label label-warning">Beta 'n' Live</span></a></li>
 				<?php
-					if($this->Session->read('Auth.User')){
-						print '<li>';
-						echo $this->Html->link(__('Issues'),
-							array('profile' => true, 'plugin' => null, 'controller' => 'issues', 'action' => 'index')
-						);
-						print '</li>';
-					}
+					// if($this->Session->read('Auth.User')){
+					// 	print '<li>';
+					// 	echo $this->Html->link(__('Issues'),
+					// 		array('profile' => true, 'plugin' => null, 'controller' => 'issues', 'action' => 'index')
+					// 	);
+					// 	print '</li>';
+					// }
 				?>
-		        <li><?php print $this->Html->link(__('More Information and Contacts'),"/pages/contact"); ?></li>
+		        <li><?php // print $this->Html->link(__('More Information and Contacts'),"/pages/contact"); ?></li>
+
       		</ul>
       		<p class="navbar-text pull-right">
 				<?php
@@ -33,14 +36,14 @@
 					//print $this->Facebook->login(array('size' => 'large'));
 
 					// If is logged, show logout button
-					if(isset($facebook_user) && !empty($facebook_user)){
-						print ' ' . $this->Facebook->logout(array(
-							'redirect' =>'/users/logout',
-							'size' => 'xlarge',
-							'id' => 'user-logout',
-							 'label' => __('Logout')
-						));
-					}
+					// if(isset($facebook_user) && !empty($facebook_user)){
+					// 	print ' ' . $this->Facebook->logout(array(
+					// 		'redirect' => '/',
+					// 		'size' => 'xlarge',
+					// 		'id' => 'user-logout',
+					// 		 'label' => __('Logout')
+					// 	));
+					// }
 				?>
 			</p>
     	</div><!--/.nav-collapse -->
