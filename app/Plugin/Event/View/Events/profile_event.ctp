@@ -1,4 +1,35 @@
 
+<?php 
+echo '<ul class="thumbnails">';
+foreach( $event_members as $event_member ){
+        if ($event_member['rsvp_status'] == 'attending') { 
+                            //get profile pic and name of the event member
+        
+
+        
+        $membersId[] = $event_member['uid'];
+        
+        $proResult =  $event_member['profile_details'];
+        $pic_crop = $proResult[0]['pic_crop']['uri'];
+        $name = $proResult[0]['name'];
+        
+        
+          print '<li class="span3">
+            <div class="thumbnail">';
+              print "<img src='{$pic_crop}' />";
+              print "<p><a href='https://www.facebook.com/profile.php?id=" . $event_member['uid'] . " target='_blank'>$name</a></p>";
+              //print "<p>RSVP Status: {$event_member['rsvp_status']}</p>";
+            print '</div>';
+          print '</li>';
+          
+
+       }
+    
+    }
+            print '</ul>';
+            
+
+ ?>
 <script language="javascript">
     // var to="";
     //     for(var j=0 ; j< 50 && j<friends.length ; j++){
@@ -41,7 +72,7 @@
 
 <!-- <input type="button" id="inviteEventMembers"> -->
 
-<div id="fb-root"></div>
+<!-- <div id="fb-root"></div>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
     <p>
       <input type="button"
@@ -55,30 +86,30 @@
       onclick="sendRequestViaMultiFriendSelector(); return false;"
       value="Send Request to Many Users with MFS"
     />
-    </p>
+    </p> -->
     
-    <script>
-      FB.init({
-        appId  : '<?php print Configure::read("Facebook.apiKey"); ?>',
-        frictionlessRequests: true
-      });
+    // <script>
+    //   FB.init({
+    //     appId  : '<?php print Configure::read("Facebook.apiKey"); ?>',
+    //     frictionlessRequests: true
+    //   });
 
-      function sendRequestToRecipients() {
-        // var user_ids = document.getElementsByName("user_ids")[0].value;
-        FB.ui({method: 'apprequests',
-          message: 'My Great Request',
-          to: '100004253881890'
-          //to: '<?php print $membersId; ?>'
-        }, requestCallback);
-      }
+    //   function sendRequestToRecipients() {
+    //     // var user_ids = document.getElementsByName("user_ids")[0].value;
+    //     FB.ui({method: 'apprequests',
+    //       message: 'My Great Request',
+    //       to: '100004253881890'
+    //       //to: '<?php print $membersId; ?>'
+    //     }, requestCallback);
+    //   }
 
-      function sendRequestViaMultiFriendSelector() {
-        FB.ui({method: 'apprequests',
-          message: 'My Great Request'
-        }, requestCallback);
-      }
+    //   function sendRequestViaMultiFriendSelector() {
+    //     FB.ui({method: 'apprequests',
+    //       message: 'My Great Request'
+    //     }, requestCallback);
+    //   }
       
-      function requestCallback(response) {
-        // Handle callback here
-      }
-    </script>
+    //   function requestCallback(response) {
+    //     // Handle callback here
+    //   }
+     </script>

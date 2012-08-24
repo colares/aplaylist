@@ -16,7 +16,7 @@
     	<div class="nav-collapse">
 
       		<ul class="nav"> 
-      			<li><a class="brand" >The <Strong>Awereness</strong> Playlist <span class="label label-warning">Beta 'n' Live</span></a></li>
+      			<li><a class="brand" >The <Strong>Awareness</strong> Playlist <span class="label label-warning">Beta 'n' Live</span></a></li>
 				<?php
 					// if($this->Session->read('Auth.User')){
 					// 	print '<li>';

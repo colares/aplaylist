@@ -302,7 +302,7 @@ class PullFb{
     
         //select name and pic_square which can be used as profile thumbnail
         $fql = "SELECT
-                name, pic_square
+                name, pic_square, pic_crop
             FROM
                 profile
             WHERE 
@@ -361,7 +361,7 @@ class PullFb{
         //once it creates an event
         // $fql = "";
         $fql = "SELECT 
-                    eid, creator, name, pic_big, start_time, end_time, location, description
+                    eid, creator, name, pic_big, start_time, end_time, location, description, attending_count
                 FROM 
                     event
                 WHERE 
@@ -370,7 +370,7 @@ class PullFb{
                     AND
                         creator = {$uid}
                 ORDER BY start_time asc";
-                                debug($fql);
+                                // debug($fql);
         //set parameters
         $param = array(
             'method' => 'fql.query',
@@ -380,9 +380,45 @@ class PullFb{
 
         //get recordset and retur results
         $result = $this->facebook->api($param);
-        debug($result);
+        // debug($result);
         return $result;
     }
+
+
+    public function getEvent( $eid ){
+        //query the events
+        //we will eid, name, pic_big, start_time, end_time, location, description  this time
+        //but there are other data that you can get on the event table (https://developers.facebook.com/docs/reference/fql/event/)
+        //as you've noticed, we have TWO select statement here
+        //since we can't just do "WHERE creator = your_fan_page_id".
+        //only eid is indexable in the event table, so we have to retrieve
+        //list of events by eids
+        //and this was achieved by selecting all eid from
+        //event_member table where the uid is the id of your fanpage.
+        //*yes, you fanpage automatically becomes an event_member
+        //once it creates an event
+        // $fql = "";
+        $fql = "SELECT 
+                    eid, creator, name, pic_big, start_time, end_time, location, description, attending_count
+                FROM 
+                    event
+                WHERE 
+                        eid = {$eid}
+                ORDER BY start_time asc";
+                                
+        $param = array(
+            'method' => 'fql.query',
+            'query' => $fql,
+            'callback' => ''
+        );
+
+        //get recordset and retur results
+        $result = $this->facebook->api($param);
+        // debug($result);
+        return $result;
+    }
+
+    
     
     //this function will get the profile invited to the event
     //pass eid or event id

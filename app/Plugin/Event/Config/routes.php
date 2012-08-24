@@ -21,4 +21,9 @@ Router::connect(
 	array('plugin' => 'event', 'controller' => 'events', 'prefix' => 'profile')
 );
 
+Router::connect(
+	'/profile/data_warehouses/:action/*',
+	array('plugin' => 'event', 'controller' => 'data_warehouses', 'prefix' => 'profile')
+);
+
  ?>

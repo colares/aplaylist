@@ -8,7 +8,7 @@
 	        	<ul>
 	        		<li>Do you have an event with friends? Party, travel, open-house etc.</li>
 	        		<li>What about build some awesome playlists based on <Strong>your and theirs preferences</strong>?</li>
-	        		<li>The aim of this app: to create playlist for an event created at Facebook bases on members preferences!</li>
+	        		<li>The aim of this app: to create playlist for an event created at Facebook bases on audience preferences!</li>
 	        	</ul>
 	        </p>
       	</div>

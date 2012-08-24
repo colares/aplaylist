@@ -28,10 +28,9 @@ class AppController extends Controller {
 		 * In this case, system uses AclComponent to check for permissions on an action level.
 		 * learn more: http://book.cakephp.org/2.0/en/core-libraries/components/authentication.html#authorization
 		 */
-		// 'Auth'=> array(
-		// 	'authorize' => 'Controller',
-		// ),
-		'Auth',
+		'Auth'=> array(
+			'authorize' => 'Controller',
+		),
 		'Facebook.Connect' => array('model' => 'User')
     );
 
