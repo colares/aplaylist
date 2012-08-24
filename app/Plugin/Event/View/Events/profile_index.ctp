@@ -53,8 +53,9 @@ foreach( $events as $key => $value ){
      
     </div> <!-- modal body -->
     <div class="modal-footer">
-        <input type="submit" value="Publicar Idéias" class="btn btn-primary btn-large">
-        <a href="#" class="btn" data-dismiss="modal" >Fechar</a>
+        <iframe frameborder="0" height="300" scrolling="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F1910294&amp;auto_play=false&amp;show_artwork=false&amp;color=80d7ff" width="500"></iframe>
+        
+        <a href="#" class="btn" data-dismiss="modal" >Close</a>
     </div>
     </form>
 </div><!-- modal -->
